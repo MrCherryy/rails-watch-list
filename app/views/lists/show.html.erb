@@ -1,0 +1,35 @@
+<div class="container mb-5">
+  <div class="d-flex justify-content-between my-4">
+    <span class="mb-2 d-block"><small><em class="text-muted"><%= "You haven't saved any movies yet!" if @list.movies.empty? %></em></small></span>
+    <div>
+
+      <%= link_to "add a movie", new_list_bookmark_path(@list), class:'btn btn-primary' %>
+      <%= link_to 'delete this list', list_path(@list), method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this list?' } %>
+    </div>
+  </div>
+
+  <div class="cards mt-3">
+    <% @list.movies.each do |movie| %>
+      <% bookmark = Bookmark.find_by(movie: movie, list: @list) %>
+
+      <div class="movie-card">
+        <%= image_tag movie.poster_url, alt: movie.title, class:'movie-img' %>
+        <div class="d-flex flex-column p-3">
+          <strong><%= movie.title %> <span class=" text-muted font-weight-normal">• <%= movie.rating %> <i class="fas fa-star fa-star-yellow"></i></span></strong>
+          <p class="text-muted small text-justify"><%= movie.overview %></p>
+          <div class="d-flex align-items-end justify-content-between ">
+            <div>
+              <small><i class="fas fa-quote-left flex-grow-1"></i> <%= bookmark.comment %></small>
+            </div>
+            <div>
+              <small><%= link_to "Delete", bookmark_path(bookmark), method: :delete, data: {confirm: "Are you sure?"}, class: 'text-danger'  %></small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <% end %>
+  </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="list-banner">
+  <h1>Make your own list!</h1>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <%= simple_form_for(@list) do |f| %>
+        <%= f.input :name, placeholder: 'Give a name to your list!' %>
+        <%= f.submit "Create", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
