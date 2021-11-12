@@ -27,14 +27,15 @@
     <h3 class="mb-0">My Lists</h3>
     <a class="btn btn-flat" href="/lists/new">Create a movie list</a>
   </div>
-  <div class="row">
+  <% @lists.each do |list| %>
+    <div class="row">
       <div class="co-12 colsm-6 col-md-4 p-1">
-       <% @lists.each do |list| %>
-      <tr>
-        <td><%= list.name %></td>
-        <td><%= list.imageUrl %></td>
-        <td><%= link_to 'Show', list %></td>
-        <td><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-</div>
+        <div>
+          <h3><%= list.name %></h3>
+          <img src="<%= list.imageUrl %>" alt="">
+          <%= link_to 'Show', list %>
+          <%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      </div>
+    </div>
+  <% end %>
