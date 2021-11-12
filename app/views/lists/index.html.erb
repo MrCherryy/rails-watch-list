@@ -1,9 +1,40 @@
-<div class="container">
-  <h2>Here are your saved Lists:</h2>
-    <ul>
-    <% @lists.each do |list| %>
-    <li><%= link_to list.name, list_path(list)%></li>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon px-3">
+  <img alt="alttext" class="logo" src="/assets/movie_reel.png">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">My lists</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/lists/new">New list</a>
+      </li>
+    </ul>
+  </div>
+</div>
+    <div class="cover mb-4 d-flex align-items-center justify-content-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://media.timeout.com/images/105750724/750/562/image.jpg')">
+  <div class="text-center text-white">
+    <h1>Welcome to your movie list!</h1>
+    <h3 class="typed-js"></h3>
+  </div>
+</div>
+<div class="container py-5">
+  <div class="d-flex align-items-center justify-content-between mb-3">
+    <h3 class="mb-0">My Lists</h3>
+    <a class="btn btn-flat" href="/lists/new">Create a movie list</a>
+  </div>
+  <div class="row">
+      <div class="co-12 colsm-6 col-md-4 p-1">
+       <% @lists.each do |list| %>
+      <tr>
+        <td><%= list.name %></td>
+        <td><%= list.imageUrl %></td>
+        <td><%= link_to 'Show', list %></td>
+        <td><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
     <% end %>
-  </ul>
-  <%= link_to "Add new lists", new_list_path %>
 </div>

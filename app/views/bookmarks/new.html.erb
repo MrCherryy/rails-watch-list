@@ -1,5 +1,5 @@
 <div class="container form shadow-sm mt-5">
-  <h1><%= "Add your movie to the #{@list.name}" %></h1>
+  <h1><%= "Add your movie to the #{@list.name} list" %></h1>
   <br>
   <%= simple_form_for [ @list, @bookmark ] do |f| %>
     <%= f.input :comment %>
