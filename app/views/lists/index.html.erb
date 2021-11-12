@@ -18,7 +18,7 @@
 </div>
     <div class="cover mb-4 d-flex align-items-center justify-content-center" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://media.timeout.com/images/105750724/750/562/image.jpg')">
   <div class="text-center text-white">
-    <h1>Welcome to your movie list!</h1>
+    <h1></h1>
     <h3 class="typed-js"></h3>
   </div>
 </div>
@@ -31,13 +31,6 @@
   <% @lists.each do |list| %>
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(https://northernvirginiamag.com/wp-content/uploads/2020/08/movie-popcorn.jpg)">
       <div><%= link_to list.name, list_path(list) %></div>
-      <div class="list-delete">
-        <%= link_to list_path(list),
-            method: :delete,
-            data: { confirm: "Are you sure?" } do %>
-            <i class="far fa-trash-alt trash"></i>
-        <% end %>
-      </div>
     </div>
   <% end %>
 </div>
